@@ -1,5 +1,6 @@
-from PyQt5.QtWidgets import QPushButton, QLabel, QFileDialog
+from PyQt5.QtWidgets import QPushButton, QLabel
 from PyQt5.QtGui import QFont
+from src.fileChooser import fileBtn_clicked
 
 font = QFont('Arial', 30)
 
@@ -12,15 +13,4 @@ def createUI(window):
     fileBtn = QPushButton("File", window)
     fileBtn.move(300, 70)
 
-    def fileBtn_clicked():
-        file_path, _ = QFileDialog.getOpenFileName(
-            None,
-            "Select Package or file",
-            "",
-            "All Files(*)"
-        )
-
-        if file_path:
-            print(file_path)
-
-    fileBtn.clicked.connect(fileBtn_clicked)
+    fileBtn.clicked.connect(lambda : fileBtn_clicked(window=window)) # give the button a function with arguments
