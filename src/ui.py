@@ -1,6 +1,7 @@
-from PyQt5.QtWidgets import QPushButton, QLabel
+from PyQt5.QtWidgets import QPushButton, QLabel, QLineEdit
 from PyQt5.QtGui import QFont
 from src.fileChooser import fileBtn_clicked
+from src.copyPath import copy
 
 font = QFont('Arial', 30)
 
@@ -17,12 +18,17 @@ def createUI(window):
     fileLb.move(90, 70)
     fileLb.show()
 
-    pathLb = QLabel(window)
+    pathLb = QLineEdit(window)
     pathLb.move(90, 100)
-    pathLb.show()
+    pathLb.hide()
+
+    copyBtn = QPushButton(window)
+    copyBtn.move(240, 100)
+    copyBtn.hide()
 
     # File 
     fileBtn = QPushButton("File", window)
     fileBtn.move(300, 70)
 
-    fileBtn.clicked.connect(lambda : fileBtn_clicked(pkgIcon, fileLb, pathLb)) # give the button a function with arguments
+    fileBtn.clicked.connect(lambda : fileBtn_clicked(pkgIcon, fileLb, pathLb, copyBtn)) # give the button a function with arguments
+    copyBtn.clicked.connect(lambda : copy(pathLb))
