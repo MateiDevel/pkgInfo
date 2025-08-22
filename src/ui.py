@@ -9,8 +9,12 @@ def createUI(window):
     title.setFont(font)
     title.move(400 // 2 - 60, 0)
 
+    pkgIcon = QLabel(window)
+    pkgIcon.move(20, 70)
+    pkgIcon.show()
+
     # File 
     fileBtn = QPushButton("File", window)
     fileBtn.move(300, 70)
 
-    fileBtn.clicked.connect(lambda : fileBtn_clicked(window=window)) # give the button a function with arguments
+    fileBtn.clicked.connect(lambda : fileBtn_clicked(pkgIcon)) # give the button a function with arguments

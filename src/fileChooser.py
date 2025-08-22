@@ -1,7 +1,7 @@
-from PyQt5.QtWidgets import QLabel, QFileDialog, QFileIconProvider
+from PyQt5.QtWidgets import QFileDialog, QFileIconProvider
 from PyQt5.QtCore import QFileInfo
 
-def fileBtn_clicked(window):
+def fileBtn_clicked(pkgIcon):
     file_path, _ = QFileDialog.getOpenFileName(
         None,
         "Select Package or file",
@@ -17,9 +17,7 @@ def fileBtn_clicked(window):
 
         pixmap = icon.pixmap(64, 64) # using pixmap bcs its optimized , qimage is used for manipulating the pixels of the image.
        
-        pkgIcon = QLabel(window)
-        pkgIcon.move(20, 70)
         pkgIcon.setPixmap(pixmap)
-        pkgIcon.show()
+        pkgIcon.adjustSize()
 
         print(file_path)
