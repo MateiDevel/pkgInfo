@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QFileDialog, QFileIconProvider
 from PyQt5.QtCore import QFileInfo
 
-def fileBtn_clicked(pkgIcon, fileLb, pathLb):
+def fileBtn_clicked(pkgIcon, fileLb, pathLb, copyBtn):
     file_path, _ = QFileDialog.getOpenFileName(
         None,
         "Select Package or file",
@@ -22,6 +22,8 @@ def fileBtn_clicked(pkgIcon, fileLb, pathLb):
 
         pathLb.setText(file_path)
         pathLb.adjustSize()
+        pathLb.show()
+        copyBtn.show()
 
         pkgIcon.setPixmap(pixmap)
         pkgIcon.adjustSize()
