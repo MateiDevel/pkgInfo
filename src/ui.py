@@ -13,8 +13,16 @@ def createUI(window):
     pkgIcon.move(20, 70)
     pkgIcon.show()
 
+    fileLb = QLabel(window)
+    fileLb.move(90, 70)
+    fileLb.show()
+
+    pathLb = QLabel(window)
+    pathLb.move(90, 100)
+    pathLb.show()
+
     # File 
     fileBtn = QPushButton("File", window)
     fileBtn.move(300, 70)
 
-    fileBtn.clicked.connect(lambda : fileBtn_clicked(pkgIcon)) # give the button a function with arguments
+    fileBtn.clicked.connect(lambda : fileBtn_clicked(pkgIcon, fileLb, pathLb)) # give the button a function with arguments
