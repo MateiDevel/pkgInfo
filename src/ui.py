@@ -2,6 +2,7 @@ from PyQt5.QtWidgets import QPushButton, QLabel, QLineEdit
 from PyQt5.QtGui import QFont
 from src.fileChooser import fileBtn_clicked
 from src.copyPath import copy
+from src.isAptPkg import isAptPkg
 
 font = QFont('Arial', 30)
 
@@ -22,7 +23,7 @@ def createUI(window):
     pathLb.move(90, 100)
     pathLb.hide()
 
-    copyBtn = QPushButton(window)
+    copyBtn = QPushButton("Copy", window)
     copyBtn.move(240, 100)
     copyBtn.hide()
 
@@ -30,5 +31,5 @@ def createUI(window):
     fileBtn = QPushButton("File", window)
     fileBtn.move(300, 70)
 
-    fileBtn.clicked.connect(lambda : fileBtn_clicked(pkgIcon, fileLb, pathLb, copyBtn)) # give the button a function with arguments
+    fileBtn.clicked.connect(lambda : (fileBtn_clicked(pkgIcon, fileLb, pathLb, copyBtn), isAptPkg()))# give the button a function with arguments
     copyBtn.clicked.connect(lambda : copy(pathLb))
