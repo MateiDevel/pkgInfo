@@ -1,7 +1,7 @@
 <table align='center', width='100%'>
   <tr>
     <td align='left'>
-      <img src='icon.png', style="width: 300px; height: 200px;">
+      <img src='icon.png', style="width: 320px; height: 200px;">
     </td> 
     <td align='center'>
       <h1>pkgInfo</h1>
