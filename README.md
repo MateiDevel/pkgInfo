@@ -10,7 +10,7 @@
     </tr>
 </table>
 
-# A simple app
+# A simple app (still in development)
 **Built with PyQt5**
 
 Simply add the path of a file and the app will search for its Package (Currently only APT packages work)
