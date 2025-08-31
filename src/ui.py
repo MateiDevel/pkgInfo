@@ -61,6 +61,7 @@ def createUI(window):
             print(currentPath)
 
     pathLb.textChanged.connect(pathChange)
+    pathLb.textChanged.connect(isAptPkg)
     pathLb.show()
 
     copyBtn = QPushButton("Copy", window)
