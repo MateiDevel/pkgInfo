@@ -5,7 +5,7 @@
     </td> 
     <td align='center'>
       <h1>pkgInfo</h1>
-      <h2>An obviously open-source viewer for Linux Distro packages packages.</h2>
+      <h2>An obviously open-source viewer for Linux Distro packages of package managers.</h2>
     </td>
     </tr>
 </table>
