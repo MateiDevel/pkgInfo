@@ -14,3 +14,16 @@
 **Built with PyQt5**
 
 Simply add the path of a file and the app will search for its Package (Currently only APT packages work)
+
+# Setup
+Debian-based distros:
+```
+sudo apt install python3-venv python3-pip
+python3 -m venv myenv
+source myenv/bin/activate
+pip install PyQt5
+```
+- Run with:
+```
+python main.py
+```
