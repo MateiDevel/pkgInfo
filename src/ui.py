@@ -1,5 +1,5 @@
-from PyQt5.QtWidgets import QPushButton, QLabel, QLineEdit, QFileIconProvider
-from PyQt5.QtGui import QFont, QPixmap
+from PyQt5.QtWidgets import QPushButton, QLabel, QLineEdit, QFileIconProvider, QFrame
+from PyQt5.QtGui import QFont, QPixmap, QColor
 from PyQt5.QtCore import QFileInfo
 from src.fileChooser import fileBtn_clicked
 from src.copyPath import copy
@@ -11,6 +11,14 @@ file_path = None
 
 
 def createUI(window):
+    box = QFrame(window)
+    box.setFrameShape(QFrame.Box)
+    box.setFrameShadow(QFrame.Raised)
+    box.setLineWidth(2)
+    box.setGeometry(10, 150, 380, 240)
+
+    box.show()
+
     icon_path = os.path.join(os.path.dirname(__file__), "assets/icon.jpg")
     placeHolder = QPixmap(icon_path)  
 
@@ -38,6 +46,10 @@ def createUI(window):
     pathLb.setText(file_path)
     pathLb.move(90, 100)
 
+    pkgStatusLb = QLabel('Status',box)
+    pkgStatusLb.move(20,10)
+    pkgStatusLb.show()
+    
     def pathChange():
         currentPath = pathLb.text()
         if currentPath:
@@ -61,7 +73,7 @@ def createUI(window):
             print(currentPath)
 
     pathLb.textChanged.connect(pathChange)
-    pathLb.textChanged.connect(isAptPkg)
+    pathLb.textChanged.connect(lambda: isAptPkg(pkgStatusLb))
     pathLb.show()
 
     copyBtn = QPushButton("Copy", window)
@@ -72,5 +84,5 @@ def createUI(window):
     fileBtn = QPushButton("File", window)
     fileBtn.move(300, 70)
 
-    fileBtn.clicked.connect(lambda : (fileBtn_clicked(pkgIcon, fileLb, pathLb, copyBtn), isAptPkg()))# give the button a function with arguments
+    fileBtn.clicked.connect(lambda : (fileBtn_clicked(pkgIcon, fileLb, pathLb, copyBtn), isAptPkg(pkgStatusLb)))# give the button a function with arguments
     copyBtn.clicked.connect(lambda : copy(pathLb))
