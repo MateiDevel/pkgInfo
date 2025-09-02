@@ -21,5 +21,3 @@ def isAptPkg(pkgStatusLb):
     else:
         pkgStatusLb.setText("Package not found.")
         pkgStatusLb.adjustSize()
-    
-
