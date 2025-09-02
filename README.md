@@ -27,3 +27,18 @@ pip install PyQt5
 ```
 python main.py
 ```
+
+# Setup
+Debian-based distros:
+```
+sudo apt install python3-venv python3-pip
+python3 -m venv myenv
+source myenv/bin/activate
+pip install PyQt5
+```
+- Run with:
+```
+python main.py
+```
+# Coming soon
+- Flatpak support
