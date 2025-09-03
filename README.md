@@ -28,4 +28,7 @@ pip install PyQt5
 python main.py
 ```
 # Coming soon
-- Flatpak support
+- Other package managers support
+
+# New
+- 03/09/2025 - Added flatpak support
