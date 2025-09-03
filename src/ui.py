@@ -4,6 +4,7 @@ from PyQt5.QtCore import QFileInfo
 from src.fileChooser import fileBtn_clicked
 from src.copyPath import copy
 from src.isAptPkg import isAptPkg
+from src.isFlatpak import isFlatpak
 import os
 
 font = QFont('Arial', 30)
@@ -49,6 +50,12 @@ def createUI(window):
     pkgStatusLb = QLabel('Status',box)
     pkgStatusLb.move(20,10)
     pkgStatusLb.show()
+
+    scanFlatpakBtn = QPushButton("Scan flatpak", box)
+    scanFlatpakBtn.move(pkgStatusLb.x(), pkgStatusLb.y() + 42)
+    scanFlatpakBtn.show()
+    
+    scanFlatpakBtn.clicked.connect(lambda: isFlatpak(pkgStatusLb))
     
     def pathChange():
         currentPath = pathLb.text()
