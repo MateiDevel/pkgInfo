@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QFileDialog, QFileIconProvider
 from PyQt5.QtCore import QFileInfo
 import src.isAptPkg
+import src.isFlatpak
 
 def fileBtn_clicked(pkgIcon, fileLb, pathLb, copyBtn):
     file_path, _ = QFileDialog.getOpenFileName(
@@ -12,6 +13,7 @@ def fileBtn_clicked(pkgIcon, fileLb, pathLb, copyBtn):
 
     if file_path:
         src.isAptPkg.path = file_path
+        src.isFlatpak.path = file_path
         info = QFileInfo(file_path)
         getter = QFileIconProvider()
         icon = getter.icon(info)
