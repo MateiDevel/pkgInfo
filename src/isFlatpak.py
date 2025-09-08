@@ -11,8 +11,6 @@ def isFlatpak(pkgStatusLb):
         return False 
     
     real_path = os.path.realpath(path)
-    result = subprocess.run(["grep", "-E", "Exec=|X-Flatpak=", real_path], capture_output=True, text=True)
-    output = result.stdout
 
     id = None
     try:
@@ -20,7 +18,9 @@ def isFlatpak(pkgStatusLb):
             for line in f:
                 if line.startswith("X-Flatpak="):
                     id = line.split("=", 1)[1].strip()
-                    print(id)
+                    result = subprocess.run(["flatpak", "info" , id], capture_output=True, text=True)
+                    output = result.stdout
+                    print(output)
                     break
     except Exception:
         return False
